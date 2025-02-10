@@ -1,0 +1,45 @@
+dataset: 
+  dataset_root: /path-to-dataset/
+  image_size: 224 
+  num_classes: 7
+  emotions: ["happy", "anger", "disgust", "neutral", "surprise", "sad", "fear"]
+  train_size_per_class: 4000
+  val_size_per_class: 400
+  test_size_per_class: 400 
+
+model: 
+  model_name: 'VGG16'
+  image_size: 224
+  num_classes: 7
+
+optimizer: 
+  optimizer_name: 'Adam'
+  lr: 0.001
+  weight_decay: 0.001
+  betas: [0.9, 0.999]
+
+loss_fn: 'CrossEntropyLoss'
+
+callbacks:
+  checkpoint:
+    save_best_only: true
+    monitor: 'val_accuracy'
+    mode: 'max'
+    verbose: 1
+    model_path: 'checkpoints/VGG16.pth'
+  lr_scheduler:
+    scheduler_name: 'ReduceLROnPlateau'
+    monitor: 'val_accuracy'
+    factor: 0.5
+    patience: 5
+    min_lr: 1e-7
+    verbose: 1
+
+training:
+  batch_size: 32
+  epochs: 60
+  device: 'cuda'
+  loss_fn: 'CrossEntropyLoss'
+  optimizer: 'Adam'
+  lr_scheduler: 'ReduceLROnPlateau'
+  model_performance_file: "model_performance.json"

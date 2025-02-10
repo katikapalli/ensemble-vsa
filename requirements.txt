@@ -1,0 +1,9 @@
+matplotlib
+opencv-python
+pretrainedmodels
+scikit-learn
+seaborn
+scipy
+torch
+torchvision
+tqdm

@@ -1,0 +1,23 @@
+{
+    "ProposedDCNN": {
+        "train_accuracy": 64.60
+    },
+    "DenseNet201": {
+        "train_accuracy": 52.18
+    },
+    "VGG16": {
+        "train_accuracy": 55.72
+    },
+    "VGG19": {
+        "train_accuracy": 50.975
+    },
+    "Xception": {
+        "train_accuracy": 52.91
+    },
+    "InceptionV3": {
+        "train_accuracy": 41.23
+    },
+    "ResNet50": {
+        "train_accuracy": 51.60
+    }
+}
