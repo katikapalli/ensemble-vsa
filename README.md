@@ -1,8 +1,20 @@
 # Enhancing Visual Sentiment Analysis with Ensemble-weighted Deep Convolutional Neural Networks
 
-## Abstract
+[![DOI](https://zenodo.org/badge/930352173.svg)](https://doi.org/10.5281/zenodo.14845110)
 
-Visual Sentiment Analysis (VSA) is crucial for understanding human emotions conveyed through visual materials such as images and films. This study aims to develop a robust VSA system by integrating deep learning and ensemble techniques. We propose an enhanced deep convolutional neural network (DCNN) to automatically extract facial features from images without the need for manual feature engineering. To further boost performance, we introduce a novel ensemble learning approach using majority, average, and weighted voting mechanisms. This ensemble technique effectively reduces biases and variations of individual models, leading to improved accuracy and robustness. Extensive experiments on the AffectNet dataset demonstrate the efficacy of our proposed method. Our ensemble-weighted voting approach achieves an accuracy of 70%, outperforming current state-of-the-art techniques, while the standalone DCNN model attains an accuracy of 69.28%. This study not only advances the field of VSA but also highlights the potential of ensemble learning in enhancing deep learning models for complex visual tasks
+**Note:** This is a PyTorch implementation of the original paper. Some variations in results may occur due to implementation differences.
+
+## Description
+
+<hr />
+
+> **Abstract:** *Visual Sentiment Analysis (VSA) is crucial for understanding human emotions conveyed through visual materials such as images and films. This study aims to develop a robust VSA system by integrating deep learning and ensemble techniques. We propose an enhanced deep convolutional neural network (DCNN) to automatically extract facial features from images without the need for manual feature engineering. To further boost performance, we introduce a novel ensemble learning approach using majority, average, and weighted voting mechanisms. This ensemble technique effectively reduces biases and variations of individual models, leading to improved accuracy and robustness. Extensive experiments on the AffectNet dataset demonstrate the efficacy of our proposed method. Our ensemble-weighted voting approach achieves an accuracy of 70%, outperforming current state-of-the-art techniques, while the standalone DCNN model attains an accuracy of 69.28%. This study not only advances the field of VSA but also highlights the potential of ensemble learning in enhancing deep learning models for complex visual tasks.* 
+
+<hr />
+
+## Network Architecture
+
+![architecture](weightedVoting.png?raw=true)
 
 ## Setup
 
@@ -21,7 +33,7 @@ pip install -r requirements.txt
 
 ## Training
 
-You can train individual models or all models at once using the provided shell script.
+To train individual models or all models at once, use the provided shell script.
 
 ### Train Individual Model
 
@@ -75,7 +87,7 @@ python src/ensemble/majority.py --config configs/config.yaml --use_proposed_dcnn
 
 Arguments:
 
-- `--config` : Consists of the model configurations.
+- `--config` : Path to the config file.
 - `--use_proposed_dcnn` : Use Proposed model or not
 - `--num_models` : Number of models used in the ensemble.
 
@@ -89,7 +101,7 @@ python src/ensemble/average.py --config configs/config.yaml --use_proposed_dcnn 
 
 Arguments:
 
-- `--config` : Consists of the model configurations.
+- `--config` : Path to the config file.
 - `--use_proposed_dcnn` : Use Proposed model or not
 - `--num_models` : Number of models used in the ensemble.
 
@@ -103,9 +115,45 @@ python src/ensemble/weighted.py --config configs/config.yaml --use_proposed_dcnn
 
 Arguments:
 
-- `--config` : Consists of the model configurations.
+- `--config` : Path to the config file.
 - `--use_proposed_dcnn` : Use Proposed model or not
 - `--num_models` : Number of models used in the ensemble.
 - `--step` : Smallest difference possible between the weights; lower values result in more refined weight assignments.
 
 Ensure all models are trained before running ensemble methods. Modify arguments as needed for customization.
+
+## Citation
+
+If our codebase or paper contributes to your research, please consider citing our paper.
+
+```bibtex
+@article{lokesh2025enhancing,
+  author    = {K. Lokesh and Gaurav Meena},
+  title     = {Enhancing Visual Sentiment Analysis with Ensemble-weighted Deep Convolutional Neural Networks},
+  journal   = {The Visual Computer},
+  publisher = {Springer Nature},
+  year      = {forthcoming},
+  note      = {In press}
+}
+
+@software{katikapalli_lokesh_2025_14845122,
+  author       = {Katikapalli Lokesh},
+  title        = {katikapalli/ensemble-vsa: Pre-Release: Ensemble-weighted Deep CNN (v1.0.0-beta)},
+  year         = {2025},
+  version      = {v1.0},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.14845122},
+  url          = {https://doi.org/10.5281/zenodo.14845122}
+}
+
+```
+
+## Our Related Work
+
+**FSTL-SA: Few-Shot Transfer Learning for Sentiment Analysis from Facial Expressions** [Paper](https://link.springer.com/article/10.1007/s11042-024-20518-y)  
+Published in *Multimedia Tools and Applications*, 2024.  
+
+
+## Contact
+
+For any inquiries or further discussions, feel free to contact at [katikapalli.lokesh@yahoo.com](mailto:katikapalli.lokesh@yahoo.com). Cheers!
