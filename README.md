@@ -59,6 +59,8 @@ The following models are included:
 |--------------|------------------------------|
 | ResNet       | `configs/resnet.yaml`        |
 | VGG16        | `configs/vgg16.yaml`         |
+| VGG19        | `configs/vgg19.yaml`         |
+| Xception     | `configs/xception.yaml`         |
 | EfficientNet | `configs/efficientnet.yaml`  |
 | DenseNet     | `configs/densenet.yaml`      |
 | Proposed DCNN| `configs/proposed_dcnn.yaml` |
@@ -135,7 +137,7 @@ Arguments:
 Run weighted voting with:
 
 ```sh
-python src/ensemble/weighted.py --config configs/config.yaml --use_proposed_dcnn True --num_models 5
+python src/ensemble/weighted.py --config configs/config.yaml --use_proposed_dcnn True --num_models 5 --step 0.01
 ```
 
 Arguments:
