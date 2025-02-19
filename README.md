@@ -2,9 +2,10 @@
 
 [![DOI](https://zenodo.org/badge/930352173.svg)](https://doi.org/10.5281/zenodo.14845110)
 
-**Note:** This is a PyTorch implementation of the original paper. Some variations in results may occur due to implementation differences.
+## Overview
+This repository provides a **PyTorch implementation** of the paper *Enhancing Visual Sentiment Analysis with Ensemble-weighted Deep Convolutional Neural Networks*. Some variations in results may occur due to implementation differences.
 
-## Description
+## Abstract
 
 <hr />
 
@@ -12,18 +13,32 @@
 
 <hr />
 
+## Dataset
+
+The AffectNet dataset is not included in this repository. You can obtain the dataset from the **official AffectNet website**.
+
+- AffectNet Dataset: https://mohammadmahoor.com/affectnet/
+- Original Publication: [AffectNet Paper](https://ieeexplore.ieee.org/document/8013713)
+
 ## Network Architecture
+
+Our deep learning pipeline consists of multiple models trained individually and then combined using an ensemble approach.
 
 ![architecture](weightedVoting.png?raw=true)
 
-## Setup
+## Installation Guide
+
 
 Before training the models, clone the repository, navigate to the directory, create a **Conda environment**, and install dependencies:
+
+### Clone the Repository
 
 ```sh
 git clone https://github.com/katikapalli/ensemble-vsa.git
 cd ensemble-vsa
 ```
+
+### Setup Conda Environment and Install Dependencies
 
 ```sh
 conda create --name ensemble_vsa python=3.10.15 -y
@@ -31,13 +46,25 @@ conda activate ensemble_vsa
 pip install -r requirements.txt
 ```
 
-## Training
+## Model Training
 
-To train individual models or all models at once, use the provided shell script.
+We train multiple models independently and then aggregate predictions using ensemble techniques.
+
+
+### Trained Models
+
+The following models are included:
+
+| Model         | Configuration File           |
+|--------------|------------------------------|
+| ResNet       | `configs/resnet.yaml`        |
+| VGG16        | `configs/vgg16.yaml`         |
+| EfficientNet | `configs/efficientnet.yaml`  |
+| DenseNet     | `configs/densenet.yaml`      |
+| Proposed DCNN| `configs/proposed_dcnn.yaml` |
+
 
 ### Train Individual Model
-
-To train a specific model, run:
 
 
 ```sh
@@ -53,9 +80,7 @@ For training a **ResNet** model:
 python scripts/train.py --config configs/resnet.yaml
 ```
 
-### Train All Models
-
-To train all models sequentially, run:
+### Train All Models Sequentially 
 
 ```sh
 chmod +x train_all_models.sh
@@ -65,9 +90,9 @@ chmod +x train_all_models.sh
 ./train_all_models.sh
 ```
 
-## Evaluation
+## Model Evaluation
 
-After training, evaluate the model using:
+Once training is complete, evaluate a model using:
 
 ```sh
 python scripts/evaluate.py --config configs/<model_config>.yaml
@@ -75,7 +100,7 @@ python scripts/evaluate.py --config configs/<model_config>.yaml
 
 ## Ensemble Learning
 
-Ensemble learning improves performance by combining multiple models.
+We employ multiple ensemble strategies to improve performance.
 
 ### Majority Voting
 
@@ -122,9 +147,34 @@ Arguments:
 
 Ensure all models are trained before running ensemble methods. Modify arguments as needed for customization.
 
+## Key Algorithms and Implementation
+
+### 1. Deep Convolutional Neural Networks (DCNNs)
+
+Each model extracts visual sentiment features from images using deep feature extraction techniques such as convolutional and pooling layers.
+
+### 2. Ensemble Learning
+
+We use three ensemble techniques to combine predictions from multiple models:
+
+- **Majority Voting**: Selects the most frequent prediction among models.
+- **Average Voting**: Computes the mean probability score across models.
+- **Weighted Voting**: Assigns weights based on model confidence to improve final predictions.
+
+### 3. Weighted Voting Strategy
+
+Weighted voting assigns different importance levels to models:
+
+- Higher weight for more accurate models
+- Lower weight for less confident models
+- Optimization step to adjust weight precision
+
+
+
+
 ## Citation
 
-If our codebase or paper contributes to your research, please consider citing our paper.
+If our repository helps in your research, please cite our paper.
 
 ```bibtex
 @article{lokesh2025enhancing,
