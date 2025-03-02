@@ -179,14 +179,6 @@ Weighted voting assigns different importance levels to models:
 If our repository helps in your research, please cite our paper.
 
 ```bibtex
-@article{lokesh2025enhancing,
-  author    = {K. Lokesh and Gaurav Meena},
-  title     = {Enhancing Visual Sentiment Analysis with Ensemble-weighted Deep Convolutional Neural Networks},
-  journal   = {The Visual Computer},
-  publisher = {Springer Nature},
-  year      = {forthcoming},
-  note      = {In press}
-}
 
 @software{katikapalli_lokesh_2025_14845122,
   author       = {Katikapalli Lokesh},
