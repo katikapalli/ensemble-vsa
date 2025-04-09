@@ -3,8 +3,13 @@
 [![DOI](https://zenodo.org/badge/930352173.svg)](https://doi.org/10.5281/zenodo.14845110)
 
 ## Overview
-This repository provides a **PyTorch implementation** of the paper *Enhancing Visual Sentiment Analysis with Ensemble-weighted Deep Convolutional Neural Networks*. Some variations in results may occur due to implementation differences.
+This repository provides a **PyTorch implementation** of the paper *Enhancing Visual Sentiment Analysis with Ensemble-weighted Deep Convolutional Neural Networks*.The original work was implemented in TensorFlow, so some variations in results might occur due to framework differences.
 
+<hr>
+
+Visual Sentiment Analysis (VSA) is crucial for understanding human emotions conveyed through visual materials such as images and films. This study aims to develop a robust VSA system by integrating deep learning and ensemble techniques. We propose an enhanced deep convolutional neural network (DCNN) to automatically extract facial features from images without the need for manual feature engineering. To further boost performance, we introduce a novel ensemble learning approach using majority, average, and weighted voting mechanisms. This ensemble technique effectively reduces biases and variations of individual models, leading to improved accuracy and robustness. Extensive experiments on the AffectNet dataset demonstrate the efficacy of our proposed method. Our ensemble-weighted voting approach achieves an accuracy of 70%, outperforming current state-of-the-art techniques, while the standalone DCNN model attains an accuracy of 69.28%. This study not only advances the field of VSA but also highlights the potential of ensemble learning in enhancing deep learning models for complex visual tasks.
+
+<hr>
 
 ## Dataset
 
