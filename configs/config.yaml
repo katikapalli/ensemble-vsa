@@ -1,0 +1,17 @@
+dataset: 
+  dataset_root: /path-to-dataset/
+  image_size: 224 
+  num_classes: 7
+  emotions: ["happy", "anger", "disgust", "neutral", "surprise", "sad", "fear"]
+  train_size_per_class: 4000
+  val_size_per_class: 400
+  test_size_per_class: 400 
+
+training:
+  batch_size: 32
+  epochs: 60
+  device: 'cuda'
+  loss_fn: 'CrossEntropyLoss'
+  optimizer: 'Adam'
+  lr_scheduler: 'ReduceLROnPlateau'
+  model_performance_file: "model_performance.json"
